@@ -1,6 +1,6 @@
 # MAC Address Tool
 
-A small tool allowing Windows users to easily change the MAC-address of network adapters through a registry key.
+A small tool allowing Windows users to easily change the MAC-address of network adapters through a registry key. [Click here to download.](https://github.com/sietseringers/MACAddressTool/releases)
 
 ![Screenshot](/screenshot.png?raw=true)
 
