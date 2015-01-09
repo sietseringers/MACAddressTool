@@ -269,9 +269,6 @@ namespace MACAddressTool
             /// <returns>The MAC address.</returns>
             public static string MacToString(byte[] bytes)
             {
-                if (bytes.Length != 6)
-                    throw new ArgumentException("bytes array is not of length 6");
-
                 return BitConverter.ToString(bytes).Replace("-", "").ToUpper();
             }
         }
