@@ -7,6 +7,8 @@ A small tool allowing Windows users to easily change the MAC-address of network 
 ## Disclaimer
 **Use at your own risk!** I have tested this tool only on my own system. I do not know what the effect of modifying the registry key will be be on other systems, under other circumstances.
 
+Works on Windows 10.
+
 ## How does it work?
 For some network interfaces the MAC-address (also called "NetworkAddress" or "Physical Address" at various places in Windows) can be changed by going to the properties of the adapter, selecting the Advanced tab, and changing the value of "NetworkAddress". This sets a value somewhere in the registry (namely, `HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\XXXX\NetworkAddress`, where `XXXX` are four digits depending on the adapter).
 However, sometimes the "NetworkAddress" is not present in the properties of the adapter, while setting the corresponding value in the registry still has effect. This tool looks up your network adapter in the registry, and sets the "NetworkAddress" to the value of your choice.
