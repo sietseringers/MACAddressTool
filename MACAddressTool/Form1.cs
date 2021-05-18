@@ -117,7 +117,9 @@ namespace MACAddressTool
                     {
                         using (RegistryKey regkey = Registry.LocalMachine.OpenSubKey(this.RegistryKey, false))
                         {
-                            return regkey.GetValue("NetworkAddress").ToString();
+                            var value = regkey.GetValue("NetworkAddress");
+                            if (value != null) return regkey.GetValue("NetworkAddress").ToString();
+                            else return null;
                         }
                     }
                     catch
