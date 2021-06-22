@@ -41,9 +41,10 @@
             // 
             // RandomButton
             // 
-            this.RandomButton.Location = new System.Drawing.Point(331, 76);
+            this.RandomButton.Location = new System.Drawing.Point(580, 85);
+            this.RandomButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RandomButton.Name = "RandomButton";
-            this.RandomButton.Size = new System.Drawing.Size(57, 21);
+            this.RandomButton.Size = new System.Drawing.Size(101, 24);
             this.RandomButton.TabIndex = 0;
             this.RandomButton.Text = "Random";
             this.RandomButton.UseVisualStyleBackColor = true;
@@ -51,36 +52,40 @@
             // 
             // CurrentMacTextBox
             // 
-            this.CurrentMacTextBox.Location = new System.Drawing.Point(229, 77);
+            this.CurrentMacTextBox.Location = new System.Drawing.Point(343, 84);
+            this.CurrentMacTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CurrentMacTextBox.Name = "CurrentMacTextBox";
-            this.CurrentMacTextBox.Size = new System.Drawing.Size(96, 20);
+            this.CurrentMacTextBox.Size = new System.Drawing.Size(229, 25);
             this.CurrentMacTextBox.TabIndex = 1;
             this.CurrentMacTextBox.TextChanged += new System.EventHandler(this.CurrentMacTextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 52);
+            this.label1.Location = new System.Drawing.Point(16, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 13);
+            this.label1.Size = new System.Drawing.Size(343, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Current MAC-address (reported by adapter):";
             // 
             // ActualMacLabel
             // 
             this.ActualMacLabel.AutoSize = true;
-            this.ActualMacLabel.Location = new System.Drawing.Point(229, 52);
+            this.ActualMacLabel.Location = new System.Drawing.Point(305, 60);
+            this.ActualMacLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ActualMacLabel.Name = "ActualMacLabel";
-            this.ActualMacLabel.Size = new System.Drawing.Size(35, 13);
+            this.ActualMacLabel.Size = new System.Drawing.Size(55, 15);
             this.ActualMacLabel.TabIndex = 3;
             this.ActualMacLabel.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 80);
+            this.label3.Location = new System.Drawing.Point(17, 90);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 13);
+            this.label3.Size = new System.Drawing.Size(295, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Current MAC-address (from registry):";
             // 
@@ -88,17 +93,19 @@
             // 
             this.AdaptersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AdaptersComboBox.FormattingEnabled = true;
-            this.AdaptersComboBox.Location = new System.Drawing.Point(15, 13);
+            this.AdaptersComboBox.Location = new System.Drawing.Point(20, 15);
+            this.AdaptersComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AdaptersComboBox.Name = "AdaptersComboBox";
-            this.AdaptersComboBox.Size = new System.Drawing.Size(373, 21);
+            this.AdaptersComboBox.Size = new System.Drawing.Size(661, 23);
             this.AdaptersComboBox.TabIndex = 5;
             this.AdaptersComboBox.SelectedIndexChanged += new System.EventHandler(this.AdaptersComboBox_SelectedIndexChanged);
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(15, 123);
+            this.UpdateButton.Location = new System.Drawing.Point(20, 142);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(151, 37);
+            this.UpdateButton.Size = new System.Drawing.Size(201, 43);
             this.UpdateButton.TabIndex = 6;
             this.UpdateButton.Text = "Update to value";
             this.UpdateButton.UseVisualStyleBackColor = true;
@@ -106,9 +113,10 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(254, 123);
+            this.ClearButton.Location = new System.Drawing.Point(478, 142);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(134, 37);
+            this.ClearButton.Size = new System.Drawing.Size(204, 43);
             this.ClearButton.TabIndex = 7;
             this.ClearButton.Text = "Clear Value";
             this.ClearButton.UseVisualStyleBackColor = true;
@@ -116,9 +124,10 @@
             // 
             // RereadButton
             // 
-            this.RereadButton.Location = new System.Drawing.Point(331, 48);
+            this.RereadButton.Location = new System.Drawing.Point(580, 55);
+            this.RereadButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RereadButton.Name = "RereadButton";
-            this.RereadButton.Size = new System.Drawing.Size(57, 21);
+            this.RereadButton.Size = new System.Drawing.Size(101, 24);
             this.RereadButton.TabIndex = 8;
             this.RereadButton.Text = "Update";
             this.RereadButton.UseVisualStyleBackColor = true;
@@ -126,9 +135,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 176);
+            this.ClientSize = new System.Drawing.Size(707, 203);
             this.Controls.Add(this.RereadButton);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.UpdateButton);
@@ -139,6 +148,7 @@
             this.Controls.Add(this.CurrentMacTextBox);
             this.Controls.Add(this.RandomButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "MAC Address tool";
