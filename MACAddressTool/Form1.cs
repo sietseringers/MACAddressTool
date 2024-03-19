@@ -13,7 +13,7 @@ using System.Management;
 using Microsoft.Win32;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
-
+using System.Threading;
 
 namespace MACAddressTool
 {
@@ -110,14 +110,17 @@ namespace MACAddressTool
             /// <summary>
             /// Get the NetworkAddress registry value of this adapter.
             /// </summary>
-            public string RegistryMac {
+            public string RegistryMac
+            {
                 get
                 {
                     try
                     {
                         using (RegistryKey regkey = Registry.LocalMachine.OpenSubKey(this.RegistryKey, false))
                         {
-                            return regkey.GetValue("NetworkAddress").ToString();
+                            var value = regkey.GetValue("NetworkAddress");
+                            if (value != null) return regkey.GetValue("NetworkAddress").ToString();
+                            else return null;
                         }
                     }
                     catch
@@ -176,7 +179,7 @@ namespace MACAddressTool
                             regkey.SetValue("NetworkAddress", value, RegistryValueKind.String);
                         else
                             regkey.DeleteValue("NetworkAddress");
-                        
+
 
                         return true;
                     }
@@ -278,8 +281,9 @@ namespace MACAddressTool
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private List<Adapter> get_adapters_list()
         {
+            List<Adapter> adapters = new List<Adapter> { };
             /* Windows generally seems to add a number of non-physical devices, of which
              * we would not want to change the address. Most of them have an impossible
              * MAC address. */
@@ -287,10 +291,31 @@ namespace MACAddressTool
                     a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)
                 ).OrderByDescending(a => a.Speed))
             {
-                AdaptersComboBox.Items.Add(new Adapter(adapter));
+                adapters.Add(new Adapter(adapter));
             }
-            
+            return adapters;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            AdaptersComboBox.Items.Add("Loading...");
             AdaptersComboBox.SelectedIndex = 0;
+            AdaptersComboBox.Enabled = false;
+            Thread t = new Thread(() =>
+            {
+                var adapters = get_adapters_list();
+                AdaptersComboBox.Invoke((MethodInvoker)delegate
+                {
+                    AdaptersComboBox.Items.Clear();
+                    foreach (Adapter adapter in adapters)
+                    {
+                        AdaptersComboBox.Items.Add(adapter);
+                        AdaptersComboBox.Enabled = true;
+                        AdaptersComboBox.SelectedIndex = 0;
+                    }
+                });
+            });
+            t.Start();
         }
 
         /// <summary>
@@ -299,8 +324,12 @@ namespace MACAddressTool
         private void UpdateAddresses()
         {
             Adapter a = AdaptersComboBox.SelectedItem as Adapter;
-            this.CurrentMacTextBox.Text = a.RegistryMac;
-            this.ActualMacLabel.Text = a.Mac;
+            if (a != null)
+            {
+                this.CurrentMacTextBox.Text = a.RegistryMac;
+                this.ActualMacLabel.Text = a.Mac;
+            }
+
         }
 
         private void AdaptersComboBox_SelectedIndexChanged(object sender, EventArgs e)
